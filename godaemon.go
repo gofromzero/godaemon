@@ -23,6 +23,7 @@ func init() {
 			}
 		}
 		cmd := exec.Command(os.Args[0], args...)
+		cmd.Env = append(cmd.Env, "GOTRACEBACK=crash")
 		cmd.Start()
 		fmt.Println("[PID]", cmd.Process.Pid)
 		os.Exit(0)
